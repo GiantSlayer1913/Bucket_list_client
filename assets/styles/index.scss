@@ -1,2 +1,55 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+.navbar-brand {
+  font-size: xx-large;
+  padding-left: 30px;
+}
+
+.main-content {
+  float: none;
+  padding-top: 20px;
+}
+
+.first-content {
+  padding: 0 0 20px 0;
+}
+
+.content {
+  small {
+    color: #49494f;
+  }
+
+  .public-content {
+    background-color: #c1c1cc;
+    // border: 1px solid #e1e1e8;
+    border-radius: 4px;
+    font-size: 14px;
+    margin-bottom: 14px;
+    padding: 9px 14px;
+  }
+
+}
+
+.user-message {
+  height: 20px;
+}
+
+.user-message {
+  text-align: center;
+}
+
+.public-message {
+  text-align: center;
+}
+
+.personal-message {
+  text-align: center;
+}
+
+.fm {
+  text-align: center;
+}
+
+body {
+  background-color: #efd4b6;
+}
