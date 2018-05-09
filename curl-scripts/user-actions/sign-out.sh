@@ -1,9 +1,11 @@
-# sh curl-scripts/User_Actions/sign-out.sh
+#!/bin/bash
 
-curl "http://localhost:4741/sign-out/${ID}" \
+API="http://localhost:4741"
+URL_PATH="/sign-out"
+
+curl "${API}${URL_PATH}/" \
   --include \
   --request DELETE \
-  --header "Content-Type: application/json"\
-  --header "Authorization: Token token=${TOKEN}"\
+  --header "Authorization: Token token=${TOKEN}"
 
 echo

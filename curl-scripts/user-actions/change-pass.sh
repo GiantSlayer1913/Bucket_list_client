@@ -1,10 +1,13 @@
-# sh curl-scripts/User_Actions/change-password.sh
+#!/bin/bash
 
-curl "http://localhost:4741/change-password/${ID}" \
+API="http://localhost:4741"
+URL_PATH="/change-password"
+
+curl "${API}${URL_PATH}/" \
   --include \
   --request PATCH \
+  --header "Authorization: Token token=${TOKEN}" \
   --header "Content-Type: application/json" \
-  --header "Authorization: Token token=$TOKEN" \
   --data '{
     "passwords": {
       "old": "'"${OLDPW}"'",
