@@ -28,7 +28,7 @@ const onSignIn = function (event) {
   // console.log(data)
   api.signIn(data)
     .then(ui.signInSuccess)
-    // .then(() => onGetMyNotes(event))
+    .then(() => onGetMyTodos(event))
     .catch(ui.signInFailure)
 }
 
@@ -49,12 +49,6 @@ const onChangePW = function (event) {
     .catch(ui.changePWFailure)
 }
 
-const createShows = (event) => {
-  event.preventDefault()
-  $('.user-message').text('')
-  $('#createContent').show()
-}
-
 const onCreateTodo = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
@@ -72,14 +66,15 @@ const onGetMyTodos = function () {
     .catch(ui.getMyTodosFailure)
 }
 
-// const onDestroyNote = (event) => {
-//   event.preventDefault()
-//   const noteId = $(event.target).closest('button').attr('data-id')
-//   api.destroyNote(noteId)
-//     .then(ui.destroyNoteSuccess)
-//     .then(() => onGetMyNotes(event))
-//     .catch(ui.destroyNoteFailure)
-// }
+const onDestroyTodo = (event) => {
+  event.preventDefault()
+  const todoId = $(event.target).closest('button').attr('data-id')
+  console.log(todoId)
+  api.destroyTodo(todoId)
+    .then(ui.destroyTodoSuccess)
+    .then(() => onGetMyTodos(event))
+    .catch(ui.destroyTodoFailure)
+}
 
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)
@@ -90,8 +85,7 @@ const addHandlers = () => {
   // $('.public-link').on('click', onGetNotes)
   // $('.all-todos').on('click', onGetMyNotes)
   // $('#myAllContent').on('submit', '.updating-note-form', onUpdateNote)
-  $('.create-todo').on('click', createShows)
-  // $('#myAllContent').on('click', '.destroy', onDestroyNote)
+  $('#myAllContent').on('click', '.destroy', onDestroyTodo)
   $('#createForm').on('submit', onCreateTodo)
 }
 

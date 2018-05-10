@@ -97,16 +97,16 @@ const createTodo = function (data) {
   })
 }
 
-// const destroyNote = function (noteId) {
-//   return $.ajax({
-//     url: config.apiUrl + '/notes/' + noteId,
-//     method: 'DELETE',
-//     headers: {
-//       contentType: 'application/json',
-//       Authorization: 'Token token=' + store.user.token
-//     }
-//   })
-// }
+const destroyTodo = function (todoId) {
+  return $.ajax({
+    url: config.apiUrl + '/todos/' + todoId,
+    method: 'DELETE',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
 
 module.exports = {
   signUp,
@@ -116,6 +116,6 @@ module.exports = {
   getTodos,
   // getMyNotes,
   // updateNote,
-  createTodo
-  // destroyNote
+  createTodo,
+  destroyTodo
 }

@@ -14,9 +14,8 @@ const authEvents = require('./events')
 $('.sign-out').hide()
 $('.a-change-pass').hide()
 $('#createContent').hide()
-$('.user-message').text('Please Sign In/Sign Up if you would like to see your notes')
-
-// authEvents.onGetTodos()
+$('#myAllContent').hide()
+$('.user-message').text('Please Sign In/Sign Up if you would like to see your Bucket list')
 
 $(() => {
   authEvents.addHandlers()

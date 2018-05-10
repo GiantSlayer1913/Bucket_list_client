@@ -47,8 +47,8 @@ const signInSuccess = (data) => {
   $('input[type=password]').val('')
   $('.a-sign-up').hide()
   $('.a-sign-in').hide()
-  $('.create-todo').show()
-  $('.all-todos').show()
+  $('#myAllContent').show()
+  $('#createContent').show()
   $('.sign-out').show()
   $('.a-change-pass').show()
 }
@@ -74,10 +74,10 @@ const signOutSuccess = () => {
   setTimeout(() => $('.user-message').text(''), 5000)
   $('.a-sign-up').show()
   $('.a-sign-in').show()
-  $('.public-link').hide()
-  $('.my-notes').hide()
   $('.sign-out').hide()
   $('.a-change-pass').hide()
+  $('#myAllContent').hide()
+  $('#createContent').hide()
   $('#sign-up')[0].reset()
   $('#sign-in')[0].reset()
   $('#createForm')[0].reset()
@@ -114,6 +114,7 @@ const getMyTodosSuccess = (data) => {
       myTodos.push(el)
     }
   })
+  console.log(myTodos)
   const showTodosHtml = showMyTodosTemplate({
     todos: myTodos
     // .sort(function (a, b) {return b.id - a.id})
@@ -125,7 +126,7 @@ const getMyTodosSuccess = (data) => {
 }
 
 const getMyTodosFailure = () => {
-  $('.user-message').text('Sorry, but your notes are not available at the moment')
+  $('.user-message').text('Sorry, but your list is not available at the moment')
   setTimeout(() => $('.user-message').text(''), 5000)
 }
 
@@ -152,15 +153,15 @@ const createFailure = () => {
   setTimeout(() => $('.user-message').text(''), 5000)
 }
 
-// const destroyNoteSuccess = () => {
-//   $('.user-message').text('Note was Deleted succesfully')
-//   setTimeout(() => $('.user-message').text(''), 5000)
-// }
-//
-// const destroyNoteFailure = () => {
-//   $('.user-message').text('Sorry, but you are not able to delete your note at the moment')
-//   setTimeout(() => $('.user-message').text(''), 5000)
-// }
+const destroyTodoSuccess = () => {
+  $('.user-message').text('Your bucket list todo was Deleted succesfully')
+  setTimeout(() => $('.user-message').text(''), 5000)
+}
+
+const destroyTodoFailure = () => {
+  $('.user-message').text('Sorry, but you are not able to delete your bucket list todo at the moment')
+  setTimeout(() => $('.user-message').text(''), 5000)
+}
 
 module.exports = {
   signUpSuccess,
@@ -177,9 +178,9 @@ module.exports = {
   getMyTodosFailure,
   // updateNoteSuccess,
   createSuccess,
-  createFailure
+  createFailure,
   // updateNoteFailure,
-  // destroyNoteSuccess,
-  // destroyNoteFailure,
+  destroyTodoSuccess,
+  destroyTodoFailure
   // autoSignInSuccess
 }
