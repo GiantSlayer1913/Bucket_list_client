@@ -53,28 +53,39 @@ const getTodos = function () {
   })
 }
 
-// const getMyNotes = function () {
-//   return $.ajax({
-//     url: config.apiUrl + '/users/' + store.user.id,
-//     method: 'GET',
-//     headers: {
-//       contentType: 'application/json',
-//       Authorization: 'Token token=' + store.user.token
-//     }
-//   })
-// }
+const updateTodo = function (data, todoId) {
+  return $.ajax({
+    url: config.apiUrl + '/todos/' + todoId,
+    method: 'PATCH',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: {
+      'todo': {
+        'title': data.todo.title,
+        'text': data.todo.text,
+        'location': data.todo.location
+      }
+    }
+  })
+}
 
-// const updateNote = function (data, noteId) {
-//   return $.ajax({
-//     url: config.apiUrl + '/notes/' + noteId,
-//     method: 'PATCH',
-//     headers: {
-//       contentType: 'application/json',
-//       Authorization: 'Token token=' + store.user.token
-//     },
-//     data
-//   })
-// }
+const completeTodo = function (todoId) {
+  return $.ajax({
+    url: config.apiUrl + '/todos/' + todoId,
+    method: 'PATCH',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: {
+      'todo': {
+        'completed': true
+      }
+    }
+  })
+}
 
 const createTodo = function (data) {
   // console.log(data)
@@ -114,8 +125,8 @@ module.exports = {
   signOut,
   changePW,
   getTodos,
-  // getMyNotes,
-  // updateNote,
+  updateTodo,
   createTodo,
-  destroyTodo
+  destroyTodo,
+  completeTodo
 }

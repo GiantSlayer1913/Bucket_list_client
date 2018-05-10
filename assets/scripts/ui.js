@@ -111,7 +111,9 @@ const getMyTodosSuccess = (data) => {
   const myTodos = []
   data.todos.forEach((el) => {
     if (el.owner === store.user._id) {
-      myTodos.push(el)
+      if (el.completed === false) {
+        myTodos.unshift(el)
+      }
     }
   })
   console.log(myTodos)
@@ -130,18 +132,30 @@ const getMyTodosFailure = () => {
   setTimeout(() => $('.user-message').text(''), 5000)
 }
 
-// const updateNoteSuccess = () => {
-//   $('.user-message').text('Your note was updated')
-//   setTimeout(() => $('.user-message').text(''), 5000)
-//   $('.modal').modal('hide')
-//   // console.log('update worked')
-// }
-//
-// const updateNoteFailure = () => {
-//   $('.user-message').text('Sorry, but you are not able to update your note at the moment')
-//   setTimeout(() => $('.user-message').text(''), 5000)
-// }
-//
+const updateTodoSuccess = () => {
+  $('.user-message').text('Your Todo was updated')
+  setTimeout(() => $('.user-message').text(''), 5000)
+  $('.modal').modal('hide')
+  // console.log('update worked')
+}
+
+const updateTodoFailure = () => {
+  $('.user-message').text('Sorry, but you are not able to update your todo at the moment')
+  setTimeout(() => $('.user-message').text(''), 5000)
+}
+
+const completeTodoSuccess = () => {
+  $('.user-message').text('Your Todo was completed')
+  setTimeout(() => $('.user-message').text(''), 5000)
+  $('.modal').modal('hide')
+  // console.log('update worked')
+}
+
+const completeTodoFailure = () => {
+  $('.user-message').text('Sorry, but you are not able to conplete your todo at the moment')
+  setTimeout(() => $('.user-message').text(''), 5000)
+}
+
 const createSuccess = () => {
   $('#createForm')[0].reset()
   $('.user-message').text('Added to your list')
@@ -172,15 +186,15 @@ module.exports = {
   changePWFailure,
   signOutSuccess,
   signOutFailure,
-  // getNotesSuccess,
-  // getNotesFailure,
   getMyTodosSuccess,
   getMyTodosFailure,
-  // updateNoteSuccess,
+  updateTodoSuccess,
   createSuccess,
   createFailure,
-  // updateNoteFailure,
+  updateTodoFailure,
   destroyTodoSuccess,
-  destroyTodoFailure
+  destroyTodoFailure,
+  completeTodoFailure,
+  completeTodoSuccess
   // autoSignInSuccess
 }

@@ -76,6 +76,25 @@ const onDestroyTodo = (event) => {
     .catch(ui.destroyTodoFailure)
 }
 
+const onUpdateTodo = (event) => {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  const todoId = $(event.target).closest('div').attr('data-id')
+  api.updateTodo(data, todoId)
+    .then(ui.updateTodoSuccess)
+    .then(() => onGetMyTodos(event))
+    .catch(ui.updateTodoFailure)
+}
+
+const onCompleteTodo = (event) => {
+  event.preventDefault()
+  const todoId = $(event.target).closest('button').attr('data-id')
+  api.completeTodo(todoId)
+    .then(ui.completeTodoSuccess)
+    .then(() => onGetMyTodos(event))
+    .catch(ui.completeTodoFailure)
+}
+
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
@@ -84,13 +103,12 @@ const addHandlers = () => {
   // $('#brand').on('click', onGetNotes)
   // $('.public-link').on('click', onGetNotes)
   // $('.all-todos').on('click', onGetMyNotes)
-  // $('#myAllContent').on('submit', '.updating-note-form', onUpdateNote)
+  $('#myAllContent').on('click', '.complete', onCompleteTodo)
+  $('#myAllContent').on('submit', '.updating-todo-form', onUpdateTodo)
   $('#myAllContent').on('click', '.destroy', onDestroyTodo)
   $('#createForm').on('submit', onCreateTodo)
 }
 
 module.exports = {
   addHandlers
-  // onGetNotes,
-  // onGetMyNotes
 }
