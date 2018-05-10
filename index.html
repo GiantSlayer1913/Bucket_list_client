@@ -119,15 +119,16 @@
       </div>
       <!-- Handlebar for all todos -->
       <div id="myAllContent" class="content">
+        <h1>Yo</h1>
       </div>
     </div>
-    <div id="createContent" class="container-fluid content">
+    <div id="createContent" class="content">
       <h3>Create a Bucket Todo List:</h3>
       <form id="createForm">
         <p>Title: <input required type="text" name="todo[title]" placeholder="Title"></p>
         <p>Place: <input type="text" name="todo[location]" placeholder="Place"></p>
-        <textarea required type="text" name="todo[text]" maxlength="2000" rows="4" cols="50"></textarea>
-        </br><input type="submit" name="submit" value="Create">
+        <textarea required type="text" name="todo[text]" maxlength="2000" rows="4" cols="50" placeholder="Write a description of what you want to accomplish"></textarea>
+      </br><input type="submit" name="submit" value="Save!">
       </form>
     </div>
   </div>

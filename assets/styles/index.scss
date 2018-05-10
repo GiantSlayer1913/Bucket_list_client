@@ -14,6 +14,16 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
   padding: 0 0 20px 0;
 }
 
+#createContent {
+  width: 400px;
+  float: left;
+}
+
+#myAllContent {
+  float: right;
+  height: 400px;
+}
+
 .content {
   small {
     color: #49494f;

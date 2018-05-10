@@ -53,7 +53,6 @@ const createShows = (event) => {
   event.preventDefault()
   $('.user-message').text('')
   $('#createContent').show()
-  $('.personal').hide()
 }
 
 const onCreateTodo = function (event) {
