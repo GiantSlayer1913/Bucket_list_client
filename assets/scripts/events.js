@@ -80,9 +80,9 @@ const addHandlers = () => {
   $('#change_pass').on('submit', onChangePW)
   // $('#brand').on('click', onGetNotes)
   // $('.public-link').on('click', onGetNotes)
-  // $('.all-notes').on('click', onGetMyNotes)
+  // $('.all-todos').on('click', onGetMyNotes)
   // $('#myAllContent').on('submit', '.updating-note-form', onUpdateNote)
-  $('.create-note').on('click', createShows)
+  $('.create-todo').on('click', createShows)
   // $('#myAllContent').on('click', '.destroy', onDestroyNote)
   // $('#createForm').on('submit', onCreateNote)
 }

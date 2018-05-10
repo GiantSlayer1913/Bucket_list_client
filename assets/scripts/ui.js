@@ -10,7 +10,7 @@ const store = require('./store')
 const signUpSuccess = (data) => {
   $('#modal1').modal('toggle')
   // $('.modal').modal('hide')
-  $('.user-message').text('Welcome to TPad expirience! Please sign in to start!')
+  $('.user-message').text('Welcome to Team Tomorrow\'s Bucket List Application! Please sign in to start!')
   setTimeout(() => $('.user-message').text(''), 5000)
   $('input[type=text]').val('')
   $('input[type=password]').val('')
@@ -40,7 +40,7 @@ const signUpFailure = () => {
 const signInSuccess = (data) => {
   store.user = data.user
   // console.log(data)
-  $('.user-message').text('Your Personal TPad welcomes you')
+  $('.user-message').text('Welcome to your bucket list!')
   setTimeout(() => $('.user-message').text(''), 5000)
   $('#modal2').modal('hide')
   $('input[type=text]').val('')

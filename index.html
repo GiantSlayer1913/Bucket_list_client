@@ -66,24 +66,15 @@
             </div>
           </div>
         </div>
-        <!-- Explanation on Public Notes -->
-        <!-- <li>
-          <a class="public-link"><span class="glyphicon glyphicon-list-alt"></span> Public Notes</a>
-        </li> -->
-        <!-- Explanation on My Notes -->
+        <!-- Link for All notes -->
         <li>
-          <ul class="nav navbar-nav my-notes">
-            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown">
-                    <span class="caret"></span> My Lists</a></a>
-              <ul class="dropdown-menu">
-                <!-- Link for All notes -->
-                <li><a class="glyphicon glyphicon-list-alt all-notes"> All Lists</a></li>
-                <!-- Link for new note model -->
-                <li><a class="glyphicon glyphicon-pencil create-note"> New List</a></li>
-              </ul>
-            </li>
-          </ul>
+          <a class="all-todos"><span class="glyphicon glyphicon-list-alt"></span> Todo List</a>
         </li>
+        <!-- Link for new note model -->
+        <li>
+            <a class="create-todo"><span class="glyphicon glyphicon-pencil"></span> Add to my list</a>
+        </li>
+
         <!-- Explanation on Sign Out -->
         <li>
           <a class="sign-out"><span class="glyphicon glyphicon-log-out"></span> Sign Out</a>
@@ -121,30 +112,21 @@
       <h2 class="user-message"></h2>
     </div>
 
-    <!-- showing all notes -->
-    <!-- <div class="public">
-      <div class="container-fluid first-content">
-        <h2 class="public-message">Public Notes</h2>
-      </div>
-      <div id="allContent" class="content">
-      </div>
-    </div> -->
-
-    <!-- Users All notes -->
+    <!-- Users Todo List -->
     <div class="personal">
       <div class="container-fluid first-content">
-        <h2 class="personal-message">My Lists</h2>
+        <h2 class="personal-message">My Todo List</h2>
       </div>
       <!-- Handlebar for all notes -->
       <div id="myAllContent" class="content">
       </div>
     </div>
     <div id="createContent" class="container-fluid content">
-      <h3>Create a List:</h3>
+      <h3>Create a Bucket Todo List:</h3>
       <form id="createForm">
-        <p>Title: <input required type="text" name="note[title]" placeholder="Title"></p>
-        <p>Date: <input required type="date" name="note[date]"></p>
-        <textarea required type="text" name="note[note_content]" maxlength="1000" rows="4" cols="50"></textarea>
+        <p>Title: <input required type="text" name="todo[title]" placeholder="Title"></p>
+        <p>Place: <input type="text" name="todo[location]" placeholder="Place"></p>
+        <textarea required type="text" name="todo[text]" maxlength="2000" rows="4" cols="50"></textarea>
         </br><input type="submit" name="submit" value="Create">
       </form>
     </div>
