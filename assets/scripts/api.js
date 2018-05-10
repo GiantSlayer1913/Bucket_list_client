@@ -75,18 +75,27 @@ const changePW = function (data) {
 //   })
 // }
 
-// const createNote = function (data) {
-//   return $.ajax({
-//     url: config.apiUrl + '/notes',
-//     method: 'POST',
-//     headers: {
-//       contentType: 'application/json',
-//       Authorization: 'Token token=' + store.user.token
-//     },
-//     data
-//   })
-// }
-//
+const createTodo = function (data) {
+  // console.log(data)
+  // console.log(store)
+  return $.ajax({
+    url: config.apiUrl + '/todos',
+    method: 'POST',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: {
+      'todo': {
+        'title': data.todo.title,
+        'text': data.todo.text,
+        'location': data.todo.location,
+        'completed': false
+      }
+    }
+  })
+}
+
 // const destroyNote = function (noteId) {
 //   return $.ajax({
 //     url: config.apiUrl + '/notes/' + noteId,
@@ -102,10 +111,10 @@ module.exports = {
   signUp,
   signIn,
   signOut,
-  changePW
+  changePW,
   // getNotes,
   // getMyNotes,
   // updateNote,
-  // createNote,
+  createTodo
   // destroyNote
 }

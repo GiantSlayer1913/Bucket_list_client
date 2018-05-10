@@ -47,8 +47,8 @@ const signInSuccess = (data) => {
   $('input[type=password]').val('')
   $('.a-sign-up').hide()
   $('.a-sign-in').hide()
-  $('.public-link').show()
-  $('.my-notes').show()
+  $('.create-todo').show()
+  $('.all-todos').show()
   $('.sign-out').show()
   $('.a-change-pass').show()
 }
@@ -139,17 +139,17 @@ const signOutFailure = () => {
 //   setTimeout(() => $('.user-message').text(''), 5000)
 // }
 //
-// const createSuccess = () => {
-//   $('#createForm')[0].reset()
-//   $('.user-message').text('Note was Created succesfully')
-//   setTimeout(() => $('.user-message').text(''), 5000)
-// }
-//
-// const createFailure = () => {
-//   $('.user-message').text('Sorry, but you are not able to create your note at the moment')
-//   setTimeout(() => $('.user-message').text(''), 5000)
-// }
-//
+const createSuccess = () => {
+  $('#createForm')[0].reset()
+  $('.user-message').text('Added to your list')
+  setTimeout(() => $('.user-message').text(''), 5000)
+}
+
+const createFailure = () => {
+  $('.user-message').text('Sorry, but you are not able to add to your list at the moment')
+  setTimeout(() => $('.user-message').text(''), 5000)
+}
+
 // const destroyNoteSuccess = () => {
 //   $('.user-message').text('Note was Deleted succesfully')
 //   setTimeout(() => $('.user-message').text(''), 5000)
@@ -168,14 +168,14 @@ module.exports = {
   changePWSuccess,
   changePWFailure,
   signOutSuccess,
-  signOutFailure
+  signOutFailure,
   // getNotesSuccess,
   // getNotesFailure,
   // getMyNotesSuccess,
   // getMyNotesFailure,
   // updateNoteSuccess,
-  // createSuccess,
-  // createFailure,
+  createSuccess,
+  createFailure
   // updateNoteFailure,
   // destroyNoteSuccess,
   // destroyNoteFailure,

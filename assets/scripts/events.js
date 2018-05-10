@@ -4,6 +4,8 @@ const api = require('./api')
 
 const ui = require('./ui')
 
+const store = require('./store')
+
 const onSignUp = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
@@ -52,18 +54,23 @@ const createShows = (event) => {
   $('.user-message').text('')
   $('#createContent').show()
   $('.personal').hide()
-  $('.public').hide()
 }
 
-// const onCreateNote = function (event) {
-//   event.preventDefault()
-//   const data = getFormFields(event.target)
-//   api.createNote(data)
-//     .then(ui.createSuccess)
-//     .then(() => onGetMyNotes())
-//     .catch(ui.createFailure)
-// }
-//
+const onCreateTodo = function (event) {
+  event.preventDefault()
+  const data = getFormFields(event.target)
+  store.data = data
+  // console.log('data is: ', data)
+  api.createTodo(data)
+    .then(ui.createSuccess)
+    .then(() => onGetMyTodos())
+    .catch(ui.createFailure)
+}
+
+const onGetMyTodos = function () {
+  console.log('awesome')
+}
+
 // const onDestroyNote = (event) => {
 //   event.preventDefault()
 //   const noteId = $(event.target).closest('button').attr('data-id')
@@ -84,7 +91,7 @@ const addHandlers = () => {
   // $('#myAllContent').on('submit', '.updating-note-form', onUpdateNote)
   $('.create-todo').on('click', createShows)
   // $('#myAllContent').on('click', '.destroy', onDestroyNote)
-  // $('#createForm').on('submit', onCreateNote)
+  $('#createForm').on('submit', onCreateTodo)
 }
 
 module.exports = {
