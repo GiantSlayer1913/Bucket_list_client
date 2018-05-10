@@ -67,7 +67,9 @@ const onCreateTodo = function (event) {
 }
 
 const onGetMyTodos = function () {
-  console.log('awesome')
+  api.getTodos()
+    .then(ui.getMyTodosSuccess)
+    .catch(ui.getMyTodosFailure)
 }
 
 // const onDestroyNote = (event) => {

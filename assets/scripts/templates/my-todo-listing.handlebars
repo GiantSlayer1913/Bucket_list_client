@@ -1,0 +1,39 @@
+<h2>My Todo list</h2>
+{{#each todos as |todo|}}
+ <!-- Template structure of db -->
+  <h3 data-id="{{todo.id}}" class="all-todos"> Title: {{todo.title}}</br><small>Place: {{todo.location}}</small></h3>
+
+  <div data-id="{{todo.id}}" class="public_bloc">
+    <p class="public-content">{{#if todo.text}}
+      {{todo.text}}
+    {{else}}
+      No todos provided.
+    {{/if}}</p>
+  </div>
+  <!-- Check mark -->
+  <button data-id="{{todo.id}}" class="complete" type="submit">Completed</button>
+  <!-- Explanation of update button -->
+  <button data-id="{{todo.id}}" data-toggle="modal" data-target="#modalupdate{{todo.id}}" class="update" type="submit">Update</button>
+  <!-- Modal for update biutton -->
+  <div data-id="{{todo.id}}" class="modal" id="modalupdate{{todo.id}}" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
+        <div data-id="{{todo.id}}" class="modal-dialog" role="document">
+          <div data-id="{{todo.id}}" class="modal-content">
+            <div data-id="{{todo.id}}" class="modal-body">
+              <form data-id="{{todo.id}}" class="updating-todo-form">
+                <p>Title: <input required type="text" name="todo[title]" value="{{todo.title}}"></p>
+                <p>Place: <input required type="text" name="todo[location]" value="{{todo.location}}"></p>
+                <textarea required type="text" name="todo[text]" maxlength="1000" rows="4" cols="50">{{todo.text}}</textarea>
+              </br><input class="update-success-button" type="submit" name="submit" value="Update">
+              </form>
+            </div>
+            <div class="modal-footer">
+              <h2 class="failedmessage2 fm"></h2>
+            </div>
+          </div>
+        </div>
+      </div>
+  <!-- <button data-id="{{todo.id}}" class="destroy" type="submit">Remove</button> -->
+  <button data-id="{{todo.id}}" class="destroy" type="submit">Remove</button>
+
+
+{{/each}}

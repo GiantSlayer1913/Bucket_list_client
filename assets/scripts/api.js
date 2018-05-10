@@ -42,15 +42,16 @@ const changePW = function (data) {
   })
 }
 //
-// const getNotes = function () {
-//   return $.ajax({
-//     url: config.apiUrl + '/notes',
-//     method: 'GET',
-//     headers: {
-//       contentType: 'application/json'
-//     }
-//   })
-// }
+const getTodos = function () {
+  return $.ajax({
+    url: config.apiUrl + '/todos/',
+    method: 'GET',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
 
 // const getMyNotes = function () {
 //   return $.ajax({
@@ -112,7 +113,7 @@ module.exports = {
   signIn,
   signOut,
   changePW,
-  // getNotes,
+  getTodos,
   // getMyNotes,
   // updateNote,
   createTodo

@@ -9,8 +9,8 @@
 
 const authEvents = require('./events')
 
-$('.all-todos').hide()
-$('.create-todo').hide()
+// $('.all-todos').hide()
+// $('.create-todo').hide()
 $('.sign-out').hide()
 $('.a-change-pass').hide()
 $('#createContent').hide()

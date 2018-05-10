@@ -2,7 +2,7 @@ const store = require('./store')
 
 // const showNotesTemplate = require('./templates/note-listing.handlebars')
 
-// const showMyNotesTemplate = require('./templates/my-note-listing.handlebars')
+const showMyTodosTemplate = require('./templates/my-todo-listing.handlebars')
 
 // const eve = require('./events.js')
 // const api = require('./api.js')
@@ -107,26 +107,28 @@ const signOutFailure = () => {
 //   $('.message').text('Sorry public notes are not available at the moment')
 // }
 
-// const getMyNotesSuccess = (data) => {
-//   // console.log(data.user.notes)
-//   $('.public').hide()
-//   $('#createContent').hide()
-//   $('.personal').show()
-//   const showNotesHtml = showMyNotesTemplate({
-//     notes: data.user.notes.sort(function (a, b) {
-//       return b.id - a.id
-//     }) })
-//   $('#myAllContent').html(showNotesHtml)
-//   if (data.user.notes.length === 0) {
-//     $('#myAllContent').html('<h2>Hey, you dont have any notes, create some!</h2>')
-//   }
-// }
+const getMyTodosSuccess = (data) => {
+  const myTodos = []
+  data.todos.forEach((el) => {
+    if (el.owner === store.user._id) {
+      myTodos.push(el)
+    }
+  })
+  const showTodosHtml = showMyTodosTemplate({
+    todos: myTodos
+    // .sort(function (a, b) {return b.id - a.id})
+  })
+  $('#myAllContent').html(showTodosHtml)
+  if (myTodos.length === 0) {
+    $('#myAllContent').html('<h2>You\'ve got nothing on your list!</h2>')
+  }
+}
 
-// const getMyNotesFailure = () => {
-//   $('.user-message').text('Sorry, but your notes are not available at the moment')
-//   setTimeout(() => $('.user-message').text(''), 5000)
-// }
-//
+const getMyTodosFailure = () => {
+  $('.user-message').text('Sorry, but your notes are not available at the moment')
+  setTimeout(() => $('.user-message').text(''), 5000)
+}
+
 // const updateNoteSuccess = () => {
 //   $('.user-message').text('Your note was updated')
 //   setTimeout(() => $('.user-message').text(''), 5000)
@@ -171,8 +173,8 @@ module.exports = {
   signOutFailure,
   // getNotesSuccess,
   // getNotesFailure,
-  // getMyNotesSuccess,
-  // getMyNotesFailure,
+  getMyTodosSuccess,
+  getMyTodosFailure,
   // updateNoteSuccess,
   createSuccess,
   createFailure
