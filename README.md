@@ -20,7 +20,7 @@ This is a simple bucket list application that lets users create, view, update an
 
 Created at the first stages of the preparartion for the project, the wireframes came out to be quite different from the built application.
 
-(Wireframe)[https://i.imgur.com/oKiyJoT.jpg?1]
+[Wireframe](https://i.imgur.com/oKiyJoT.jpg?1)
 
 ## Technologies Used
 
@@ -55,7 +55,7 @@ small CSS issue or a larger question regarding our app functionality.
 
 ## Links
 
-- (The client-side repository)[https://github.com/Team-Tomorrow/Bucket_list_client]
-- (The back-end repository)[https://github.com/Team-Tomorrow/Bucket_list_api]
-- (The link to the deployed web application)[https://team-tomorrow.github.io/Bucket_list_client/]
-- (The link to the deployed heroku page (api))[https://bucket-list-wdi.herokuapp.com/]
+- [The client-side repository](https://github.com/Team-Tomorrow/Bucket_list_client)
+- [The back-end repository](https://github.com/Team-Tomorrow/Bucket_list_api)
+- [The link to the deployed web application](https://team-tomorrow.github.io/Bucket_list_client/)
+- [The link to the deployed heroku page (api)](https://bucket-list-wdi.herokuapp.com/)
