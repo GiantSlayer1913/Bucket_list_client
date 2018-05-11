@@ -66,6 +66,7 @@ const signOutSuccess = () => {
   $('.failedmessage1').text('')
   $('.failedmessage2').text('')
   store.user = null
+  store.data = null
 }
 
 const signOutFailure = () => {
