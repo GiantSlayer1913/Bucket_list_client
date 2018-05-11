@@ -1,7 +1,5 @@
 const store = require('./store')
 
-// const showNotesTemplate = require('./templates/note-listing.handlebars')
-
 const showMyTodosTemplate = require('./templates/my-todo-listing.handlebars')
 
 // const eve = require('./events.js')
@@ -20,22 +18,6 @@ const signUpFailure = () => {
   // $('.failedmessage1').text('Failed to Sign Up')
   setTimeout(() => $('.failedmessage1').text('Failed to Sign Up'), 300)
 }
-
-// const autoSignInSuccess = (data) => {
-//   // console.log(data)
-//   $('#modal1').modal('hide')
-//   store.user = data.user
-//   $('.user-message').text('Your Personal TPad welcomes you')
-//   setTimeout(() => $('.user-message').text(''), 5000)
-//   $('input[type=text]').val('')
-//   $('input[type=password]').val('')
-//   $('.a-sign-up').hide()
-//   $('.a-sign-in').hide()
-//   $('.public-link').show()
-//   $('.my-notes').show()
-//   $('.sign-out').show()
-//   $('.a-change-pass').show()
-// }
 
 const signInSuccess = (data) => {
   store.user = data.user
@@ -91,22 +73,6 @@ const signOutFailure = () => {
   setTimeout(() => $('.user-message').text(''), 5000)
 }
 
-// const getNotesSuccess = (data) => {
-//   store.notes = data.notes
-//   $('.personal').hide()
-//   $('#createContent').hide()
-//   $('.public').show()
-//   const showNotesHtml = showNotesTemplate({
-//     notes: store.notes.sort(function (a, b) {
-//       return b.id - a.id
-//     }) })
-//   $('#allContent').html(showNotesHtml)
-// }
-//
-// const getNotesFailure = () => {
-//   $('.message').text('Sorry public notes are not available at the moment')
-// }
-
 const getMyTodosSuccess = (data) => {
   const myTodos = []
   data.todos.forEach((el) => {
@@ -116,7 +82,7 @@ const getMyTodosSuccess = (data) => {
       }
     }
   })
-  console.log(myTodos)
+  // console.log(myTodos)
   const showTodosHtml = showMyTodosTemplate({
     todos: myTodos
     // .sort(function (a, b) {return b.id - a.id})
@@ -196,5 +162,4 @@ module.exports = {
   destroyTodoFailure,
   completeTodoFailure,
   completeTodoSuccess
-  // autoSignInSuccess
 }

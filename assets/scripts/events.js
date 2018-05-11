@@ -11,16 +11,16 @@ const onSignUp = function (event) {
   const data = getFormFields(event.target)
   api.signUp(data)
     .then(ui.signUpSuccess)
-    // .then(() => onAutoSignIn(data))
+    .then(() => onAutoSignIn(data))
     .catch(ui.signUpFailure)
 }
 
-// const onAutoSignIn = function (data) {
-//   api.signIn(data)
-//     .then(ui.signInSuccess)
-//     .then(() => onGetMyNotes())
-//     .catch(ui.signInFailure)
-// }
+const onAutoSignIn = function (data) {
+  api.signIn(data)
+    .then(ui.signInSuccess)
+    .then(() => onGetMyTodos())
+    .catch(ui.signInFailure)
+}
 
 const onSignIn = function (event) {
   event.preventDefault()
@@ -69,7 +69,7 @@ const onGetMyTodos = function () {
 const onDestroyTodo = (event) => {
   event.preventDefault()
   const todoId = $(event.target).closest('button').attr('data-id')
-  console.log(todoId)
+  // console.log(todoId)
   api.destroyTodo(todoId)
     .then(ui.destroyTodoSuccess)
     .then(() => onGetMyTodos(event))
@@ -100,9 +100,6 @@ const addHandlers = () => {
   $('#sign-in').on('submit', onSignIn)
   $('.sign-out').on('click', onSignOut)
   $('#change_pass').on('submit', onChangePW)
-  // $('#brand').on('click', onGetNotes)
-  // $('.public-link').on('click', onGetNotes)
-  // $('.all-todos').on('click', onGetMyNotes)
   $('#myAllContent').on('click', '.complete', onCompleteTodo)
   $('#myAllContent').on('submit', '.updating-todo-form', onUpdateTodo)
   $('#myAllContent').on('click', '.destroy', onDestroyTodo)
