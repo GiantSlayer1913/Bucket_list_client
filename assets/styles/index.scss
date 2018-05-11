@@ -1,14 +1,23 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
-.navbar-brand {
+
+#brand {
+  float: left;
+  padding: 15px 15px;
   font-size: xx-large;
-  padding-left: 30px;
+  line-height: 20px;
+  height: 50px;
   color: #9fa09f;
+  margin-top: 10px;
 }
 
 .main-content {
   float: none;
   padding-top: 20px;
+}
+
+a {
+  margin-top: 10px;
 }
 
 #createContent {
@@ -73,6 +82,7 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
   min-width: 100%;
   min-height: 100%;
   z-index: -1;
+  object-fit: fill;
 }
 
 .user-message {
@@ -103,18 +113,3 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 body {
   background-color: #fff;
 }
-
-
-
-// @media only screen and (max-width: 1000px) {
-//  .navbar-brand {
-//     font-size: 100px;
-// }
-//
-//   #createContent {
-//     margin: 0 auto;
-//   }
-//
-//   #myAllContent {
-//   }
-// }
