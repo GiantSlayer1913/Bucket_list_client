@@ -1,4 +1,5 @@
-<h2>My Todo list</h2>
+<h3 class="myHeader">My Todo list</h3>
+<div id="myTodoContent" data-id="{{todo._id}}">
 {{#each todos as |todo|}}
  <!-- Template structure of db -->
   <h3 data-id="{{todo._id}}" class="all-todos"> Title: {{todo.title}}</br><small>Place: {{todo.location}}</small></h3>
@@ -35,5 +36,5 @@
   <!-- <button data-id="{{todo._id}}" class="destroy" type="submit">Remove</button> -->
   <button data-id="{{todo._id}}" class="destroy" type="submit">Remove</button>
 
-
 {{/each}}
+</div>

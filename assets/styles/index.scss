@@ -3,6 +3,7 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 .navbar-brand {
   font-size: xx-large;
   padding-left: 30px;
+  color: #9fa09f;
 }
 
 .main-content {
@@ -10,18 +11,38 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
   padding-top: 20px;
 }
 
-.first-content {
-  padding: 0 0 20px 0;
+#createContent {
+  width: 600px;
+  float: left;
+  margin-bottom: 40px;
+  background-color: rgba(255, 255, 255, 0.7);
 }
 
-#createContent {
-  width: 400px;
-  float: left;
+#createForm {
+  padding: 0 0 10px 10px;
+}
+
+.myHeader {
+  position: sticky;
+  margin-top: 0;
+  width: 100%;
+  text-align: center;
+  background-color: rgba(91, 79, 79, 1);
+  color: #9fa09f;
 }
 
 #myAllContent {
   float: right;
   width: 600px;
+  height: 600px;
+  height: 600px;
+  background-color: rgba(255, 255, 255, 0.7);
+}
+
+#myTodoContent {
+  padding: 0 10px 10px 10px;
+  overflow: scroll;
+  height: 550px;
 }
 
 .content {
@@ -41,6 +62,10 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 
 }
 
+#main-content {
+  margin-bottom: 20px;
+}
+
 #myVideo {
   position: fixed;
   right: 0;
@@ -52,10 +77,15 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 
 .user-message {
   height: 20px;
+  margin-bottom: 30px;
 }
 
 .user-message {
   text-align: center;
+  font-family: 'Vast Shadow', cursive;
+  font-size: 50px;
+  margin-bottom: 20px;
+  outline-color: black;
 }
 
 .public-message {
@@ -73,3 +103,18 @@ $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 body {
   background-color: #fff;
 }
+
+
+
+// @media only screen and (max-width: 1000px) {
+//  .navbar-brand {
+//     font-size: 100px;
+// }
+//
+//   #createContent {
+//     margin: 0 auto;
+//   }
+//
+//   #myAllContent {
+//   }
+// }

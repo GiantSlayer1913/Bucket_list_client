@@ -15,7 +15,7 @@ $('.sign-out').hide()
 $('.a-change-pass').hide()
 $('#createContent').hide()
 $('#myAllContent').hide()
-$('.user-message').text('Please Sign In/Sign Up if you would like to see your Bucket list')
+$('.user-message').text('What\'s on your Bucket List?  Log in to create one!')
 
 $(() => {
   authEvents.addHandlers()

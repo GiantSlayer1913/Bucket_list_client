@@ -6,6 +6,8 @@
 
       <!-- Do not add `link` tags-->
       <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+      <link href="https://fonts.googleapis.com/css?family=Jacques+Francois+Shadow" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css?family=Vast+Shadow" rel="stylesheet">
 
       <!-- Do not add `script` tags-->
       <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
@@ -17,7 +19,7 @@
     <div class="container-fluid">
       <div class="navbar-header">
         <!-- Brand name -->
-        <a class="navbar-brand" id="brand">Bucket List</a>
+        <p class="navbar-brand" id="brand">Bucket List</p>
       </div>
       <!-- All navigation to the right side -->
       <ul class="nav navbar-nav navbar-right">
@@ -97,14 +99,28 @@
     </div>
   </nav>
   <!-- End of navbar -->
+
+  <!-- Cover Page -->
+
+  <!-- End of cover page -->
   <!-- Content -->
   <div class="col-xs-10 container-fluid main-content">
     <video autoplay muted loop id="myVideo">
-      <source src="https://video.wixstatic.com/video/11062b_f0d5e0c342cc49dca298de0225d2247c/1080p/mp4/file.mp4" type="video/mp4">
+      <source src="https://video.wixstatic.com/video/11062b_10927dd4d14046e4ac23f51f0a5448b3/1080p/mp4/file.mp4" type="video/mp4">
       </video>
     <!-- Users Messages -->
     <div id="main-content" class="container-fluid">
       <h2 class="user-message"></h2>
+    </div>
+
+    <div id="createContent" class="content">
+      <h3 class="myHeader">Create a Bucket Todo List</h3>
+      <form id="createForm">
+        <p><strong> Title: </strong><input required type="text" name="todo[title]" placeholder="Title"></p>
+        <p><strong> Place: </strong><input type="text" name="todo[location]" placeholder="Place"></p>
+        <textarea required type="text" name="todo[text]" maxlength="2000" rows="4" cols="40" placeholder="Write a description of what you want to accomplish"></textarea>
+      </br><input type="submit" name="submit" value="Save!">
+      </form>
     </div>
 
     <!-- Users Todo List -->
@@ -113,15 +129,7 @@
       <div id="myAllContent" class="content">
       </div>
     </div>
-    <div id="createContent" class="content">
-      <h3>Create a Bucket Todo List:</h3>
-      <form id="createForm">
-        <p>Title: <input required type="text" name="todo[title]" placeholder="Title"></p>
-        <p>Place: <input type="text" name="todo[location]" placeholder="Place"></p>
-        <textarea required type="text" name="todo[text]" maxlength="2000" rows="4" cols="50" placeholder="Write a description of what you want to accomplish"></textarea>
-      </br><input type="submit" name="submit" value="Save!">
-      </form>
-    </div>
+
   </div>
 </body>
 </html>

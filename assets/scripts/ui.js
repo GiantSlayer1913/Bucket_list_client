@@ -65,6 +65,7 @@ const signOutSuccess = () => {
   $('#createForm')[0].reset()
   $('.failedmessage1').text('')
   $('.failedmessage2').text('')
+  $('.user-message').text('What\'s on your Bucket List?  Log in to create one!')
   store.user = null
   store.data = null
 }
@@ -90,7 +91,7 @@ const getMyTodosSuccess = (data) => {
   })
   $('#myAllContent').html(showTodosHtml)
   if (myTodos.length === 0) {
-    $('#myAllContent').html('<h2>You\'ve got nothing on your list!</h2>')
+    $('#myAllContent').html('<h2 class="myHeader">Your Bucket List is currently empty!</h2>')
   }
 }
 
@@ -107,7 +108,7 @@ const updateTodoSuccess = () => {
 }
 
 const updateTodoFailure = () => {
-  $('.user-message').text('Sorry, but you are not able to update your todo at the moment')
+  $('.user-message').text('Sorry, could not be updated')
   setTimeout(() => $('.user-message').text(''), 5000)
 }
 
@@ -119,7 +120,7 @@ const completeTodoSuccess = () => {
 }
 
 const completeTodoFailure = () => {
-  $('.user-message').text('Sorry, but you are not able to conplete your todo at the moment')
+  $('.user-message').text('Sorry, could not be conmpleted')
   setTimeout(() => $('.user-message').text(''), 5000)
 }
 
@@ -130,17 +131,17 @@ const createSuccess = () => {
 }
 
 const createFailure = () => {
-  $('.user-message').text('Sorry, but you are not able to add to your list at the moment')
+  $('.user-message').text('Sorry, Todo could not be created')
   setTimeout(() => $('.user-message').text(''), 5000)
 }
 
 const destroyTodoSuccess = () => {
-  $('.user-message').text('Your bucket list todo was Deleted succesfully')
+  $('.user-message').text('Your todo has been Deleted')
   setTimeout(() => $('.user-message').text(''), 5000)
 }
 
 const destroyTodoFailure = () => {
-  $('.user-message').text('Sorry, but you are not able to delete your bucket list todo at the moment')
+  $('.user-message').text('Sorry, Todo could not be deleted')
   setTimeout(() => $('.user-message').text(''), 5000)
 }
 
