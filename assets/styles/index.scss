@@ -120,31 +120,31 @@ body {
   background-color: #fff;
 }
 
-@media (max-width: 800px) {
-  #createContent {
-      width: 50vh;
-      margin: 0 auto;
-      margin-bottom: 40px;
-      background-color: rgba(255, 255, 255, 0.7);
-  }
-
-  #myAllContent {
-    float: left;
-    width: 50vh;
-    height: 600px;
-    margin: 0 auto;
-    height: 60vh;
-    overflow: scroll;
-    background-color: rgba(255, 255, 255, 0.7);
-}
-
-  #myHeader {
-    position: sticky;
-    top: 0;
-    margin: 0 auto;
-    width: 100%;
-    text-align: center;
-    background-color: #5b4f4f;
-    color: #9fa09f;
- }
-}
+// @media (max-width: 800px) {
+//   #createContent {
+//       width: 50vh;
+//       margin: 0 auto;
+//       margin-bottom: 40px;
+//       background-color: rgba(255, 255, 255, 0.7);
+//   }
+//
+//   #myAllContent {
+//     float: left;
+//     width: 50vh;
+//     height: 600px;
+//     margin: 0 auto;
+//     height: 60vh;
+//     overflow: scroll;
+//     background-color: rgba(255, 255, 255, 0.7);
+// }
+//
+//   #myHeader {
+//     position: sticky;
+//     top: 0;
+//     margin: 0 auto;
+//     width: 100%;
+//     text-align: center;
+//     background-color: #5b4f4f;
+//     color: #9fa09f;
+//  }
+// }
