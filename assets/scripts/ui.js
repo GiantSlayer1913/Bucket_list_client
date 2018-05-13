@@ -91,7 +91,7 @@ const getMyTodosSuccess = (data) => {
   })
   $('#myAllContent').html(showTodosHtml)
   if (myTodos.length === 0) {
-    $('#myAllContent').html('<h2 class="myHeader">Your Bucket List is currently empty!</h2>')
+    $('#myAllContent').html('<h3 class="myHeader">Your Bucket List is currently empty!</h3>')
   }
 }
 
