@@ -52,8 +52,8 @@ const changePWFailure = () => {
 }
 
 const signOutSuccess = () => {
-  $('.user-message').text('Please come back again!')
-  setTimeout(() => $('.user-message').text(''), 5000)
+  // $('.user-message').text('Please come back again!')
+  // setTimeout(() => $('.user-message').text(''), 5000)
   $('.a-sign-up').show()
   $('.a-sign-in').show()
   $('.sign-out').hide()
