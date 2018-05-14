@@ -57,6 +57,11 @@ a {
     color: #49494f;
   }
 
+#create_content {
+  padding-right: 10px;
+  padding-left: 10px;
+}
+
   .public-content {
     background-color: #c1c1cc;
     // border: 1px solid #e1e1e8;
@@ -64,6 +69,7 @@ a {
     font-size: 14px;
     margin-bottom: 14px;
     padding: 9px 14px;
+    width: auto;
   }
 
 }
