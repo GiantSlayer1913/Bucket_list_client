@@ -104,7 +104,7 @@
 
   <!-- End of cover page -->
   <!-- Content -->
-  <div class="col-xs-11 container-fluid main-content">
+  <div id="main-div" class="row container-fluid main-content">
     <video autoplay muted loop id="myVideo">
       <source src="https://video.wixstatic.com/video/11062b_10927dd4d14046e4ac23f51f0a5448b3/1080p/mp4/file.mp4" type="video/mp4">
       </video>
@@ -113,18 +113,22 @@
       <h4 class="user-message"></h4>
     </div>
 
+    <div class="container col-lg-6 col-xs-12">
+
     <div id="createContent" class="content">
       <h3 class="myHeader">Create a Bucket Todo List</h3>
-      <form id="createForm">
+      <div class="container">
+        <form id="createForm">
         <p><strong> Title: </strong><input required type="text" name="todo[title]" placeholder="Title"></p>
         <p><strong> Place: </strong><input type="text" name="todo[location]" placeholder="Place"></p>
         <textarea required type="text" name="todo[text]" maxlength="2000" rows="4" cols="40" placeholder="Write a description of what you want to accomplish"></textarea>
       </br><input type="submit" name="submit" value="Save!">
       </form>
     </div>
-
+    </div>
+    </div>
     <!-- Users Todo List -->
-    <div class="personal">
+    <div class="container col-lg-6 col-xs-12">
       <!-- Handlebar for all todos -->
       <div id="myAllContent" class="content">
       </div>
