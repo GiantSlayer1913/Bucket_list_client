@@ -29,6 +29,7 @@ const onSignIn = function (event) {
   api.signIn(data)
     .then(ui.signInSuccess)
     .then(() => onGetMyTodos(event))
+    // .then(() => onCompletedTodos(event))
     .catch(ui.signInFailure)
 }
 
@@ -66,6 +67,13 @@ const onGetMyTodos = function () {
     .catch(ui.getMyTodosFailure)
 }
 
+const onCompletedTodos = (event) => {
+  event.preventDefault()
+  api.getCompletedTodos()
+    .then(ui.getMyCompletedTodosSuccess)
+    .catch(ui.getMyCompletedTodosFailure)
+}
+
 const onDestroyTodo = (event) => {
   event.preventDefault()
   const todoId = $(event.target).closest('button').attr('data-id')
@@ -74,6 +82,17 @@ const onDestroyTodo = (event) => {
     .then(ui.destroyTodoSuccess)
     .then(() => onGetMyTodos(event))
     .catch(ui.destroyTodoFailure)
+}
+
+const onCompletedDestroyTodo = (event) => {
+  event.preventDefault()
+  const todoId = $(event.target).closest('button').attr('data-id')
+  // console.log(todoId)
+  api.destroyTodo(todoId)
+    .then(ui.destroyCompletedTodoSuccess)
+    .then(() => onCompletedTodos(event))
+    .then(() => onGetMyTodos(event))
+    .catch(ui.destroyCompletedTodoFailure)
 }
 
 const onUpdateTodo = (event) => {
@@ -95,6 +114,16 @@ const onCompleteTodo = (event) => {
     .catch(ui.completeTodoFailure)
 }
 
+const onBackOnListTodo = (event) => {
+  event.preventDefault()
+  const todoId = $(event.target).closest('button').attr('data-id')
+  api.backOnListTodo(todoId)
+    .then(ui.backOnListSuccess)
+    .then(() => onCompletedTodos(event))
+    .then(() => onGetMyTodos(event))
+    .catch(ui.backOnListFailure)
+}
+
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
@@ -104,6 +133,9 @@ const addHandlers = () => {
   $('#myAllContent').on('submit', '.updating-todo-form', onUpdateTodo)
   $('#myAllContent').on('click', '.destroy', onDestroyTodo)
   $('#createForm').on('submit', onCreateTodo)
+  $('.completed_tasks').on('click', onCompletedTodos)
+  $('#completed_task').on('click', '.back-to-list', onBackOnListTodo)
+  $('#completed_task').on('click', '.destroy', onCompletedDestroyTodo)
 }
 
 module.exports = {

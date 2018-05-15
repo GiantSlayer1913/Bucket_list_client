@@ -56,6 +56,16 @@ a {
   small {
     color: #49494f;
   }
+}
+
+#completed_task_div {
+  max-height: 400px;
+  overflow: scroll;
+}
+
+.modal-footer {
+  height: 80px;
+}
 
 #create_content {
   padding-right: 10px;
@@ -71,8 +81,6 @@ a {
     padding: 9px 14px;
     width: auto;
   }
-
-}
 
 #main-content {
   margin-bottom: 20px;

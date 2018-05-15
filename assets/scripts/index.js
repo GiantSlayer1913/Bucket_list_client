@@ -15,6 +15,7 @@ $('.sign-out').hide()
 $('.a-change-pass').hide()
 $('#createContent').hide()
 $('#myAllContent').hide()
+$('.completed_tasks').hide()
 $('.user-message').text('What\'s on your Bucket List?  Log in to create one!')
 
 $(() => {

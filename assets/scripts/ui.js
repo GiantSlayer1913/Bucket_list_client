@@ -1,6 +1,7 @@
 const store = require('./store')
 
 const showMyTodosTemplate = require('./templates/my-todo-listing.handlebars')
+const showMyTodosCompleteTemplate = require('./templates/my-completed-listing.handlebars')
 
 // const eve = require('./events.js')
 // const api = require('./api.js')
@@ -33,6 +34,7 @@ const signInSuccess = (data) => {
   $('#createContent').show()
   $('.sign-out').show()
   $('.a-change-pass').show()
+  $('.completed_tasks').show()
 }
 
 const signInFailure = () => {
@@ -60,6 +62,7 @@ const signOutSuccess = () => {
   $('.a-change-pass').hide()
   $('#myAllContent').hide()
   $('#createContent').hide()
+  $('.completed_tasks').hide()
   $('#sign-up')[0].reset()
   $('#sign-in')[0].reset()
   $('#createForm')[0].reset()
@@ -95,7 +98,33 @@ const getMyTodosSuccess = (data) => {
   }
 }
 
+const getMyCompletedTodosSuccess = (data) => {
+  // console.log(data)
+  const myTodos = []
+  data.todos.forEach((el) => {
+    if (el.owner === store.user._id) {
+      if (el.completed === true) {
+        myTodos.unshift(el)
+      }
+    }
+  })
+  // console.log(myTodos)
+  const showTodosHtml = showMyTodosCompleteTemplate({
+    todos: myTodos
+    // .sort(function (a, b) {return b.id - a.id})
+  })
+  $('#completed_task').html(showTodosHtml)
+  if (myTodos.length === 0) {
+    $('#completed_task').html('<h2 class="failedmessage4 fm">Your list is empty</h2>')
+  }
+}
+
 const getMyTodosFailure = () => {
+  $('.failedmessage4').text('Sorry, but your list is not available at the moment')
+  setTimeout(() => $('.failedmessage4').text(''), 5000)
+}
+
+const getMyCompletedTodosFailure = () => {
   $('.user-message').text('Sorry, but your list is not available at the moment')
   setTimeout(() => $('.user-message').text(''), 5000)
 }
@@ -115,13 +144,25 @@ const updateTodoFailure = () => {
 const completeTodoSuccess = () => {
   $('.user-message').text('Your Todo was completed')
   setTimeout(() => $('.user-message').text(''), 5000)
-  $('.modal').modal('hide')
+  // $('.modal').modal('hide')
   // console.log('update worked')
 }
 
 const completeTodoFailure = () => {
-  $('.user-message').text('Sorry, could not be conmpleted')
+  $('.user-message').text('Sorry, could not be completed')
   setTimeout(() => $('.user-message').text(''), 5000)
+}
+
+const backOnListSuccess = () => {
+  $('.failedmessage4').text('Your Todo is back to the list')
+  setTimeout(() => $('.failedmessage4').text(''), 5000)
+  // $('.modal').modal('hide')
+  // console.log('update worked')
+}
+
+const backOnListFailure = () => {
+  $('.failedmessage4').text('Sorry, could not be changed')
+  setTimeout(() => $('.failedmessage4').text(''), 5000)
 }
 
 const createSuccess = () => {
@@ -145,6 +186,16 @@ const destroyTodoFailure = () => {
   setTimeout(() => $('.user-message').text(''), 5000)
 }
 
+const destroyCompletedTodoSuccess = () => {
+  $('.failedmessage4').text('Your todo has been Deleted')
+  setTimeout(() => $('.failedmessage4').text(''), 5000)
+}
+
+const destroyCompletedTodoFailure = () => {
+  $('.failedmessage4').text('Sorry, Todo could not be deleted')
+  setTimeout(() => $('.failedmessage4').text(''), 5000)
+}
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -163,5 +214,11 @@ module.exports = {
   destroyTodoSuccess,
   destroyTodoFailure,
   completeTodoFailure,
-  completeTodoSuccess
+  completeTodoSuccess,
+  getMyCompletedTodosSuccess,
+  getMyCompletedTodosFailure,
+  destroyCompletedTodoFailure,
+  destroyCompletedTodoSuccess,
+  backOnListFailure,
+  backOnListSuccess
 }

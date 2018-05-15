@@ -1,5 +1,4 @@
-<h3 class="myHeader">My Todo list</h3>
-<div id="myTodoContent" class="content" data-id="{{todo._id}}">
+<div id="myCompletedContent" class="content" data-id="{{todo._id}}">
 {{#each todos as |todo|}}
  <!-- Template structure of db -->
   <h3 data-id="{{todo._id}}" class="all-todos"> Title: {{todo.title}}</br><small>Place: {{todo.location}}</small></h3>
@@ -12,11 +11,11 @@
     {{/if}}</p>
   </div>
   <!-- Check mark -->
-  <button data-id="{{todo._id}}" class="complete" type="submit">Completed</button>
+  <button data-id="{{todo._id}}" class="back-to-list" type="submit">Back on a list</button>
   <!-- Explanation of update button -->
-  <button data-id="{{todo._id}}" data-toggle="modal" data-target="#modalupdate{{todo._id}}" class="update" type="submit">Update</button>
+  <!-- <button data-id="{{todo._id}}" data-toggle="modal" data-target="#modalupdate1{{todo._id}}" class="update" type="submit">Update</button> -->
   <!-- Modal for update biutton -->
-  <div data-id="{{todo._id}}" class="modal" id="modalupdate{{todo._id}}" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
+  <!-- <div data-id="{{todo._id}}" class="modal" id="modalupdate1{{todo._id}}" tabindex="-1" role="dialog" aria-labelledby="modalLabel">
         <div data-id="{{todo._id}}" class="modal-dialog" role="document">
           <div data-id="{{todo._id}}" class="modal-content">
             <div data-id="{{todo._id}}" class="modal-body">
@@ -32,7 +31,7 @@
             </div>
           </div>
         </div>
-      </div>
+      </div> -->
   <button data-id="{{todo._id}}" class="destroy" type="submit">Remove</button>
 
 {{/each}}

@@ -53,6 +53,17 @@ const getTodos = function () {
   })
 }
 
+const getCompletedTodos = function () {
+  return $.ajax({
+    url: config.apiUrl + '/todos/',
+    method: 'GET',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
+    }
+  })
+}
+
 const updateTodo = function (data, todoId) {
   return $.ajax({
     url: config.apiUrl + '/todos/' + todoId,
@@ -82,6 +93,22 @@ const completeTodo = function (todoId) {
     data: {
       'todo': {
         'completed': true
+      }
+    }
+  })
+}
+
+const backOnListTodo = function (todoId) {
+  return $.ajax({
+    url: config.apiUrl + '/todos/' + todoId,
+    method: 'PATCH',
+    headers: {
+      contentType: 'application/json',
+      Authorization: 'Token token=' + store.user.token
+    },
+    data: {
+      'todo': {
+        'completed': false
       }
     }
   })
@@ -128,5 +155,7 @@ module.exports = {
   updateTodo,
   createTodo,
   destroyTodo,
-  completeTodo
+  completeTodo,
+  getCompletedTodos,
+  backOnListTodo
 }
