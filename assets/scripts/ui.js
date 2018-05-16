@@ -2,6 +2,7 @@ const store = require('./store')
 
 const showMyTodosTemplate = require('./templates/my-todo-listing.handlebars')
 const showMyTodosCompleteTemplate = require('./templates/my-completed-listing.handlebars')
+const showPublicTodos = require('./templates/public.handlebars')
 
 // const eve = require('./events.js')
 // const api = require('./api.js')
@@ -35,6 +36,7 @@ const signInSuccess = (data) => {
   $('.sign-out').show()
   $('.a-change-pass').show()
   $('.completed_tasks').show()
+  $('.public_todos').show()
 }
 
 const signInFailure = () => {
@@ -63,6 +65,7 @@ const signOutSuccess = () => {
   $('#myAllContent').hide()
   $('#createContent').hide()
   $('.completed_tasks').hide()
+  $('.public_todos').hide()
   $('#sign-up')[0].reset()
   $('#sign-in')[0].reset()
   $('#createForm')[0].reset()
@@ -196,6 +199,28 @@ const destroyCompletedTodoFailure = () => {
   setTimeout(() => $('.failedmessage4').text(''), 5000)
 }
 
+// BONUS FEATURE UI------------------------------------
+const getPublicTodosSuccess = (data) => {
+  const publicTodos = []
+  data.todos.forEach((el) => {
+    publicTodos.unshift(el)
+  })
+  const showTodosHtml = showPublicTodos({
+    todos: publicTodos
+    // .sort(function (a, b) {return b.id - a.id})
+  })
+  $('#public_task').html(showTodosHtml)
+  if (publicTodos.length === 0) {
+    $('#public_task').html('<h2 class="failedmessage4 fm">Be the first to create a bucket list ever!</h2>')
+  }
+}
+
+const getPublicTodosFailure = () => {
+  $('.failedmessage5').text('Sorry, but the public list is not available at the moment')
+  setTimeout(() => $('.failedmessage5').text(''), 5000)
+}
+// End of BONUS FEATURE UI------------------------------------
+
 module.exports = {
   signUpSuccess,
   signUpFailure,
@@ -220,5 +245,7 @@ module.exports = {
   destroyCompletedTodoFailure,
   destroyCompletedTodoSuccess,
   backOnListFailure,
-  backOnListSuccess
+  backOnListSuccess,
+  getPublicTodosSuccess,
+  getPublicTodosFailure
 }

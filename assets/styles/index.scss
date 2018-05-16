@@ -1,5 +1,6 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
+$grey: #c1c1cc;
 
 #brand {
   float: left;
@@ -63,8 +64,13 @@ a {
   overflow: scroll;
 }
 
+#public_div {
+  max-height: 400px;
+  overflow: scroll;
+}
+
 .modal-footer {
-  height: 80px;
+  height: 120px;
 }
 
 #create_content {
@@ -72,15 +78,15 @@ a {
   padding-left: 10px;
 }
 
-  .public-content {
-    background-color: #c1c1cc;
-    // border: 1px solid #e1e1e8;
-    border-radius: 4px;
-    font-size: 14px;
-    margin-bottom: 14px;
-    padding: 9px 14px;
-    width: auto;
-  }
+.public-content {
+  background-color: $grey;
+  // border: 1px solid #e1e1e8;
+  border-radius: 4px;
+  font-size: 14px;
+  margin-bottom: 14px;
+  padding: 9px 14px;
+  width: auto;
+}
 
 #main-content {
   margin-bottom: 20px;
