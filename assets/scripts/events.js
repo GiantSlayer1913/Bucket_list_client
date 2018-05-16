@@ -124,6 +124,15 @@ const onBackOnListTodo = (event) => {
     .catch(ui.backOnListFailure)
 }
 
+// BONUS FEATURE events ------------------------
+const onPublicTodos = (event) => {
+  event.preventDefault()
+  api.getCompletedTodos()
+    .then(ui.getPublicTodosSuccess)
+    .catch(ui.getPublicTodosFailure)
+}
+// end of BONUS FEATURE events ------------------------
+
 const addHandlers = () => {
   $('#sign-up').on('submit', onSignUp)
   $('#sign-in').on('submit', onSignIn)
@@ -136,6 +145,7 @@ const addHandlers = () => {
   $('.completed_tasks').on('click', onCompletedTodos)
   $('#completed_task').on('click', '.back-to-list', onBackOnListTodo)
   $('#completed_task').on('click', '.destroy', onCompletedDestroyTodo)
+  $('.public_todos').on('click', onPublicTodos)
 }
 
 module.exports = {
